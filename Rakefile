@@ -15,9 +15,9 @@ Hoe.spec 'oauth' do |p|
   extra_deps      << ['ruby-hmac','>= 0.3.1']
   extra_deps      << ['typhoeus']
 
-  extra_dev_deps  << ['actionpack']
-  extra_dev_deps  << ['rack']
-  extra_dev_deps  << ['mocha']
+  %w{ actionpack rack mocha }.each do |lib|
+    extra_dev_deps  << [lib]
+  end
 end
 
 Dir['tasks/**/*.rake'].each { |t| load t }
